@@ -1,24 +1,36 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 2.8.11)
 project(rviz_plugin_covariance)
 find_package(catkin REQUIRED COMPONENTS rviz cmake_modules)
 catkin_package()
 include_directories(${catkin_INCLUDE_DIRS})
 link_directories(${catkin_LIBRARY_DIRS})
 
-find_package(Qt4 COMPONENTS QtCore QtGui REQUIRED)
-include(${QT_USE_FILE})
+option(UseQt5 "UseQt5" ON)
+if (UseQt5)
+  find_package(Qt5Widgets REQUIRED)
+  set(CMAKE_AUTOMOC ON)
+else (UseQt5)
+  find_package(Qt4 COMPONENTS QtCore QtGui REQUIRED)
+  include(${QT_USE_FILE})
+endif (UseQt5)
+
 
 find_package(Eigen REQUIRED)
 include_directories(${EIGEN_INCLUDE_DIR})
 
 add_definitions(-DQT_NO_KEYWORDS)
 
-qt4_wrap_cpp(MOC_FILES
+set(HEADER_FILES
   src/pose_with_covariance_display.h
   src/odometry_display.h
   src/covariance_visual.h
   src/covariance_property.h
 )
+
+if (NOT UseQt5)
+  qt4_wrap_cpp(MOC_FILES ${HEADER_FILES})
+endif (NOT UseQt5)
+
 
 set(SOURCE_FILES
   src/covariance_visual.cpp
@@ -31,7 +43,9 @@ set(SOURCE_FILES
 add_library(${PROJECT_NAME} ${SOURCE_FILES})
 
 target_link_libraries(${PROJECT_NAME} ${QT_LIBRARIES} ${catkin_LIBRARIES})
-
+if (UseQt5)
+  target_link_libraries(${PROJECT_NAME} Qt5::Widgets)
+endif (UseQt5)  
 
 ## Install rules
 

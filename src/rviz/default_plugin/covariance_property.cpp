@@ -63,13 +63,13 @@ CovarianceProperty::CovarianceProperty( const QString& name,
   position_color_property_ = new ColorProperty( "Color", QColor( 204, 51, 204 ),
                                              "Color to draw the position covariance ellipse.",
                                              position_property_, SLOT( updateColorAndAlphaAndScaleAndOffset() ), this );
-  
+
   position_alpha_property_ = new FloatProperty( "Alpha", 0.3f,
                                              "0 is fully transparent, 1.0 is fully opaque.",
                                              position_property_, SLOT( updateColorAndAlphaAndScaleAndOffset() ), this );
   position_alpha_property_->setMin( 0 );
   position_alpha_property_->setMax( 1 );
-  
+
   position_scale_property_ = new FloatProperty( "Scale", 1.0f,
                                              "Scale factor to be applied to covariance ellipse. Corresponds to the number of standard deviations to display",
                                              position_property_, SLOT( updateColorAndAlphaAndScaleAndOffset() ), this );
@@ -93,13 +93,13 @@ CovarianceProperty::CovarianceProperty( const QString& name,
   orientation_color_property_ = new ColorProperty( "Color", QColor( 255, 255, 127 ),
                                              "Color to draw the covariance ellipse.",
                                              orientation_property_, SLOT( updateColorAndAlphaAndScaleAndOffset() ), this );
-  
+
   orientation_alpha_property_ = new FloatProperty( "Alpha", 0.5f,
                                              "0 is fully transparent, 1.0 is fully opaque.",
                                              orientation_property_, SLOT( updateColorAndAlphaAndScaleAndOffset() ), this );
   orientation_alpha_property_->setMin( 0 );
   orientation_alpha_property_->setMax( 1 );
-  
+
   orientation_offset_property_ = new FloatProperty( "Offset", 1.0f,
                                              "For 3D poses is the distance where to position the ellipses representing orientation covariance. For 2D poses is the height of the triangle representing the variance on yaw",
                                              orientation_property_, SLOT( updateColorAndAlphaAndScaleAndOffset() ), this );

@@ -246,10 +246,10 @@ CovarianceVisual::CovarianceVisual( Ogre::SceneManager* scene_manager, Ogre::Sce
   orientation_offset_node_[kYaw]->setPosition( Ogre::Vector3( Ogre::Vector3::UNIT_Z ) );
   orientation_offset_node_[kYaw]->setOrientation( Ogre::Quaternion( Ogre::Degree( 90 ), Ogre::Vector3::UNIT_X ) );
   // z-axis (yaw 2D)
-  // NOTE: rviz use a cone defined by the file rviz/ogre_media/models/rviz_cone.mesh, and it's 
-  //       origin is not at the top of the cone. Since we want the top to be at the origin of 
+  // NOTE: rviz use a cone defined by the file rviz/ogre_media/models/rviz_cone.mesh, and it's
+  //       origin is not at the top of the cone. Since we want the top to be at the origin of
   //       the pose we need to use an offset here.
-  // WARNING: This number was found by trial-and-error on rviz and it's not the correct 
+  // WARNING: This number was found by trial-and-error on rviz and it's not the correct
   //          one, so changes on scale are expected to cause the top of the cone to move
   //          from the pose origin, although it's only noticeable with big scales.
   // FIXME: Find the right value from the cone.mesh file, or implement a class that draws
@@ -303,10 +303,10 @@ void CovarianceVisual::setCovariance( const geometry_msgs::PoseWithCovariance& p
 
   // store orientation in Ogre structure
   Ogre::Quaternion ori(pose.pose.orientation.w, pose.pose.orientation.x, pose.pose.orientation.y, pose.pose.orientation.z);
-  // Set the orientation of the fixed node. Since this node is attached to the root node, it's orientation will be the 
+  // Set the orientation of the fixed node. Since this node is attached to the root node, it's orientation will be the
   // inverse of pose's orientation.
   fixed_orientation_node_->setOrientation(ori.Inverse());
-  // Map covariance to a Eigen::Matrix 
+  // Map covariance to a Eigen::Matrix
   Eigen::Map<const Eigen::Matrix<double,6,6> > covariance(pose.covariance.data());
 
   updatePosition(covariance);
@@ -332,7 +332,7 @@ void CovarianceVisual::updatePosition( const Eigen::Matrix6d& covariance )
   {
     computeShapeScaleAndOrientation2D(covariance.topLeftCorner<2,2>(), shape_scale, shape_orientation, XY_PLANE);
     // Make the scale in z minimal for better visualization
-    shape_scale.z = 0.001; 
+    shape_scale.z = 0.001;
   }
   else
   {
@@ -392,7 +392,7 @@ void CovarianceVisual::updateOrientation( const Eigen::Matrix6d& covariance, Sha
     // NOTE: The cylinder mesh is oriented along its y axis, thus we want to flat it out into the XZ plane
     computeShapeScaleAndOrientation2D(covarianceAxis, shape_scale, shape_orientation, XZ_PLANE);
     // Give a minimal height for the cylinder for better visualization
-    shape_scale.y = 0.001;    
+    shape_scale.y = 0.001;
     // Store the computed scale to be used if the user change the scale
     current_ori_scale_[index] = shape_scale;
     // Apply the current scale factor
@@ -419,7 +419,7 @@ void CovarianceVisual::setScales( float pos_scale, float ori_scale)
   setOrientationScale(ori_scale);
 }
 
-void CovarianceVisual::setPositionScale( float pos_scale ) 
+void CovarianceVisual::setPositionScale( float pos_scale )
 {
   if(pose_2d_)
     position_scale_node_->setScale( pos_scale, pos_scale, 1.0 );
@@ -431,9 +431,9 @@ void CovarianceVisual::setOrientationOffset( float ori_offset )
 {
   // Scale the orientation root node to position the shapes along the axis
   orientation_root_node_->setScale( ori_offset, ori_offset, ori_offset );
-  // The scale the offset_nodes as well so the displayed shape represents a 1-sigma 
+  // The scale the offset_nodes as well so the displayed shape represents a 1-sigma
   // standard deviation when displayed with an scale of 1.0
-  // NOTE: We only want to change the scales of the dimentions that represent the 
+  // NOTE: We only want to change the scales of the dimentions that represent the
   //       orientation covariance. The other dimensions are set to 1.0.
   for(int i = 0; i < kNumOriShapes; i++)
   {
@@ -452,7 +452,7 @@ void CovarianceVisual::setOrientationOffset( float ori_offset )
 
 void CovarianceVisual::setOrientationScale( float ori_scale )
 {
-  // Here we update the current scale factor, apply it to the current scale _in radians_, 
+  // Here we update the current scale factor, apply it to the current scale _in radians_,
   // convert it to meters and apply to the shape scale. Note we have different invariant
   // scales in the 3D and in 2D.
   current_ori_scale_factor_ = ori_scale;
@@ -559,7 +559,7 @@ void CovarianceVisual::updateOrientationVisibility()
 }
 
 
-const Ogre::Vector3& CovarianceVisual::getPosition() 
+const Ogre::Vector3& CovarianceVisual::getPosition()
 {
   return position_node_->getPosition();
 }

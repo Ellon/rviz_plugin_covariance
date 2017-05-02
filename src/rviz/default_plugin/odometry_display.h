@@ -114,7 +114,7 @@ private:
   rviz::FloatProperty* position_tolerance_property_;
   rviz::FloatProperty* angle_tolerance_property_;
   rviz::IntProperty* keep_property_;
-  
+
   rviz::FloatProperty* head_radius_property_;
   rviz::FloatProperty* head_length_property_;
   rviz::FloatProperty* shaft_radius_property_;

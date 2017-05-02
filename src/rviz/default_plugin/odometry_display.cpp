@@ -56,7 +56,7 @@ OdometryDisplay::OdometryDisplay()
                                                     "that will cause a new arrow to drop.",
                                                     this );
   position_tolerance_property_->setMin( 0 );
-                                                
+
   angle_tolerance_property_ = new FloatProperty( "Angle Tolerance", .1,
                                                  "Angular distance from the last arrow dropped, "
                                                  "that will cause a new arrow to drop.",
@@ -88,7 +88,7 @@ OdometryDisplay::OdometryDisplay()
   // aleeper: default changed from 0.1 to match change in arrow.cpp
   shaft_radius_property_ = new FloatProperty( "Shaft Radius", 0.05, "Radius of the each arrow's shaft, in meters.",
                                               shape_property_, SLOT( updateArrowsGeometry() ), this);
-  
+
   head_length_property_ = new FloatProperty( "Head Length", 0.3, "Length of the each arrow's head, in meters.",
                                              shape_property_, SLOT( updateArrowsGeometry() ), this);
 
@@ -104,7 +104,7 @@ OdometryDisplay::OdometryDisplay()
 
   covariance_property_ = new CovarianceProperty( "Covariance", true, "Whether or not the covariances of the messages should be shown.",
                                              this, SLOT( queueRender() ));
- 
+
 }
 
 OdometryDisplay::~OdometryDisplay()
@@ -295,7 +295,7 @@ void OdometryDisplay::processMessage( const nav_msgs::Odometry::ConstPtr& messag
   Axes* axes = new Axes( scene_manager_, scene_node_,
                          axes_length_property_->getFloat(),
                          axes_radius_property_->getFloat() );
-  Arrow* arrow = new Arrow( scene_manager_, scene_node_, 
+  Arrow* arrow = new Arrow( scene_manager_, scene_node_,
                             shaft_length_property_->getFloat(),
                             shaft_radius_property_->getFloat(),
                             head_length_property_->getFloat(),

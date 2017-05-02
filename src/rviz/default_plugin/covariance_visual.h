@@ -134,7 +134,7 @@ public:
 
   /** @brief Set the covariance.
    *
-   * This effectively changes the orientation and scale of position and orientation 
+   * This effectively changes the orientation and scale of position and orientation
    * covariance shapes
    */
   virtual void setCovariance( const geometry_msgs::PoseWithCovariance& pose );
@@ -163,7 +163,7 @@ public:
   /**
    * \brief Get the shape used to display orientation covariance in an especific axis
    * @return the shape used to display orientation covariance in an especific axis
-   */  
+   */
   rviz::Shape* getOrientationShape(ShapeIndex index);
 
   /**

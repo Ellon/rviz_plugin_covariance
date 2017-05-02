@@ -83,7 +83,7 @@ public:
     covariance_position_property_->setReadOnly( true );
 
     covariance_orientation_property_ = new VectorProperty( "Covariance Orientation", Ogre::Vector3::ZERO, "", cat );
-    covariance_orientation_property_->setReadOnly( true );    
+    covariance_orientation_property_->setReadOnly( true );
   }
 
   void getAABBs( const Picked& obj, V_AABB& aabbs )
@@ -151,7 +151,7 @@ private:
   QuaternionProperty* orientation_property_;
   VectorProperty* covariance_position_property_;
   VectorProperty* covariance_orientation_property_;
-  
+
 };
 
 PoseWithCovarianceDisplay::PoseWithCovarianceDisplay()
@@ -176,7 +176,7 @@ PoseWithCovarianceDisplay::PoseWithCovarianceDisplay()
   // aleeper: default changed from 0.1 to match change in arrow.cpp
   shaft_radius_property_ = new FloatProperty( "Shaft Radius", 0.05, "Radius of the arrow's shaft, in meters.",
                                               this, SLOT( updateArrowGeometry() ));
-  
+
   head_length_property_ = new FloatProperty( "Head Length", 0.3, "Length of the arrow's head, in meters.",
                                              this, SLOT( updateArrowGeometry() ));
 

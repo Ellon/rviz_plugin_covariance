@@ -14,10 +14,10 @@ if (rviz_QT_VERSION VERSION_GREATER "5.0.0")
   set(QT_LIBRARIES ${Qt5Core_LIBRARIES} ${Qt5Gui_LIBRARIES})
 
   qt5_wrap_cpp(MOC_FILES
-    src/pose_with_covariance_display.h
-    src/odometry_display.h
-    src/covariance_visual.h
-    src/covariance_property.h
+    src/rviz/default_plugin/pose_with_covariance_display.h
+    src/rviz/default_plugin/odometry_display.h
+    src/rviz/default_plugin/covariance_visual.h
+    src/rviz/default_plugin/covariance_property.h
   )
 
 else()
@@ -25,10 +25,10 @@ else()
   include(${QT_USE_FILE})
 
   qt4_wrap_cpp(MOC_FILES
-    src/pose_with_covariance_display.h
-    src/odometry_display.h
-    src/covariance_visual.h
-    src/covariance_property.h
+    src/rviz/default_plugin/pose_with_covariance_display.h
+    src/rviz/default_plugin/odometry_display.h
+    src/rviz/default_plugin/covariance_visual.h
+    src/rviz/default_plugin/covariance_property.h
   )
 
 endif()
@@ -39,10 +39,10 @@ include_directories(${EIGEN_INCLUDE_DIR})
 add_definitions(-DQT_NO_KEYWORDS)
 
 set(SOURCE_FILES
-  src/covariance_visual.cpp
-  src/covariance_property.cpp
-  src/pose_with_covariance_display.cpp
-  src/odometry_display.cpp
+  src/rviz/default_plugin/covariance_visual.cpp
+  src/rviz/default_plugin/covariance_property.cpp
+  src/rviz/default_plugin/pose_with_covariance_display.cpp
+  src/rviz/default_plugin/odometry_display.cpp
   ${MOC_FILES}
 )
 

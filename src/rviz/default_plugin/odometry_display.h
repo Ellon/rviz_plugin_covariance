@@ -27,7 +27,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-
+// Add _COVARIANCE_ to include guard to distinguish from the guard name used
+// on rviz's odometry_display.h
 #ifndef RVIZ_COVARIANCE_ODOMETRY_DISPLAY_H_
 #define RVIZ_COVARIANCE_ODOMETRY_DISPLAY_H_
 

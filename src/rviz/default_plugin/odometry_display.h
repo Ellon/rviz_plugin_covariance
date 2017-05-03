@@ -11,7 +11,7 @@
 #include <tf/message_filter.h>
 #endif
 
-#include <rviz/message_filter_display.h>
+#include "rviz/message_filter_display.h"
 #include <nav_msgs/Odometry.h>
 
 namespace rviz

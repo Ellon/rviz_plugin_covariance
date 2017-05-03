@@ -1,7 +1,7 @@
 #ifndef COVARIANCE_VISUAL_H
 #define COVARIANCE_VISUAL_H
 
-#include <rviz/ogre_helpers/object.h>
+#include "rviz/ogre_helpers/object.h"
 
 #include <boost/scoped_ptr.hpp>
 

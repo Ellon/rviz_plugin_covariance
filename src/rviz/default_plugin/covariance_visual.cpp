@@ -1,6 +1,6 @@
 #include "covariance_visual.h"
 
-#include <rviz/ogre_helpers/shape.h>
+#include "rviz/ogre_helpers/shape.h"
 
 #include <OgreSceneManager.h>
 #include <OgreSceneNode.h>

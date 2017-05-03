@@ -39,9 +39,10 @@
 #include <OgreSceneManager.h>
 #include <OgreSceneNode.h>
 
-using namespace rviz;
+namespace rviz
+{
 
-namespace rviz_plugin_covariance
+namespace covariance
 {
 
 CovarianceProperty::CovarianceProperty( const QString& name,
@@ -241,6 +242,5 @@ bool CovarianceProperty::getOrientationBool()
   return orientation_property_->getBool();
 }
 
-
-
-} // end namespace rviz_plugin_covariance
+} // end namespace covariance
+} // end namespace rviz

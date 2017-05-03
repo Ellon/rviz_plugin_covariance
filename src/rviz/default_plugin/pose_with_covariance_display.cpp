@@ -51,9 +51,9 @@
 
 #include <Eigen/Dense>
 
-using namespace rviz;
-
-namespace rviz_plugin_covariance
+namespace rviz
+{
+namespace covariance
 {
 
 class PoseWithCovarianceDisplaySelectionHandler: public SelectionHandler
@@ -341,7 +341,8 @@ void PoseWithCovarianceDisplay::reset()
   updateShapeVisibility();
 }
 
-} // namespace rviz_plugin_covariance
+} // namespace covariance
+} // namespace rviz
 
 #include <pluginlib/class_list_macros.h>
-PLUGINLIB_EXPORT_CLASS( rviz_plugin_covariance::PoseWithCovarianceDisplay, rviz::Display )
+PLUGINLIB_EXPORT_CLASS( rviz::covariance::PoseWithCovarianceDisplay, rviz::Display )

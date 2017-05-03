@@ -19,17 +19,17 @@ class SceneNode;
 class Any;
 }
 
-namespace rviz
-{
-class Shape;
-}
-
 namespace Eigen
 {
   typedef Matrix<double,6,6> Matrix6d;
 }
 
-namespace rviz_plugin_covariance
+namespace rviz
+{
+
+class Shape;
+
+namespace covariance
 {
 
 class CovarianceProperty;
@@ -209,6 +209,7 @@ private:
   friend class CovarianceProperty;
 };
 
-} // namespace rviz_plugin_covariance
+} // namespace covariance
+} // namespace rviz
 
 #endif /* COVARIANCE_VISUAL_H */

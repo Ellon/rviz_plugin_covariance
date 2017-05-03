@@ -22,9 +22,8 @@ class ColorProperty;
 class FloatProperty;
 class IntProperty;
 class EnumProperty;
-}
 
-namespace rviz_plugin_covariance
+namespace covariance
 {
 
 class CovarianceProperty;
@@ -97,6 +96,7 @@ private:
   CovarianceProperty* covariance_property_;
 };
 
-} // namespace rviz_plugin_covariance
+} // covariance
+} // namespace rviz
 
 #endif /* RVIZ_ODOMETRY_DISPLAY_H_ */

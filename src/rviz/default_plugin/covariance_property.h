@@ -7,21 +7,21 @@
 
 #include <rviz/properties/bool_property.h>
 
-namespace rviz
-{
-class Property;
-class ColorProperty;
-class FloatProperty;
-class EnumProperty;
-}
-
 namespace Ogre
 {
   class SceneManager;
   class SceneNode;
 }
 
-namespace rviz_plugin_covariance
+namespace rviz
+{
+
+class Property;
+class ColorProperty;
+class FloatProperty;
+class EnumProperty;
+
+namespace covariance
 {
 
 class CovarianceVisual;
@@ -92,6 +92,7 @@ private:
   rviz::FloatProperty* orientation_scale_property_;
 };
 
-} // end namespace rviz_plugin_covariance
+} // end namespace covariance
+} // end namespace rviz
 
 #endif // COVARIANCE_PROPERTY_H

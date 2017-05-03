@@ -1,6 +1,6 @@
 <library path="lib/librviz_plugin_covariance">
   <class name="rviz_plugin_covariance/PoseWithCovariance"
-         type="rviz_plugin_covariance::PoseWithCovarianceDisplay"
+         type="rviz::covariance::PoseWithCovarianceDisplay"
          base_class_type="rviz::Display">
     <description>
       Display geometry_msgs/PoseWithCovarianceStamped.
@@ -9,10 +9,10 @@
   </class>
 
   <class name="rviz_plugin_covariance/OdometryWithCovariance"
-         type="rviz_plugin_covariance::OdometryDisplay"
+         type="rviz::covariance::OdometryDisplay"
          base_class_type="rviz::Display">
     <description>
-      Display nav_msgs/Odometry.
+      Display nav_msgs/Odometry with covariances.
     </description>
     <message_type>nav_msgs/Odometry</message_type>
   </class>

@@ -10,9 +10,10 @@
 
 #include <sstream>
 
-using namespace rviz;
+namespace rviz
+{
 
-namespace rviz_plugin_covariance
+namespace covariance
 {
 
 namespace
@@ -568,4 +569,5 @@ rviz::Shape* CovarianceVisual::getOrientationShape(ShapeIndex index)
   return orientation_shape_[index];
 }
 
-} // namespace rviz_plugin_covariance
+} // namespace covariance
+} // namespace rviz

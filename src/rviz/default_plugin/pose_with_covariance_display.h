@@ -11,6 +11,7 @@
 
 namespace rviz
 {
+
 class Arrow;
 class Axes;
 class ColorProperty;
@@ -18,9 +19,8 @@ class EnumProperty;
 class FloatProperty;
 class BoolProperty;
 class Shape;
-}
 
-namespace rviz_plugin_covariance
+namespace covariance
 {
 
 class CovarianceVisual;
@@ -86,6 +86,7 @@ private:
   friend class PoseWithCovarianceDisplaySelectionHandler;
 };
 
-} // namespace rviz_plugin_covariance
+} // namespace covariance
+} // namespace rviz
 
 #endif // POSE_WITH_COVARIANCE_DISPLAY_H

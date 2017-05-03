@@ -14,9 +14,10 @@
 #include "covariance_property.h"
 #include "covariance_visual.h"
 
-using namespace rviz;
+namespace rviz
+{
 
-namespace rviz_plugin_covariance
+namespace covariance
 {
 
 OdometryDisplay::OdometryDisplay()
@@ -335,7 +336,8 @@ void OdometryDisplay::reset()
   clear();
 }
 
-} // namespace rviz_plugin_covariance
+} // namespace covariance
+} // namespace rviz
 
 #include <pluginlib/class_list_macros.h>
-PLUGINLIB_EXPORT_CLASS( rviz_plugin_covariance::OdometryDisplay, rviz::Display )
+PLUGINLIB_EXPORT_CLASS( rviz::covariance::OdometryDisplay, rviz::Display )
